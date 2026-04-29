@@ -1,13 +1,11 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { ShoppingCart, Heart, User, Home as HomeIcon, LogOut } from "lucide-react";
+import { ShoppingCart, Heart, Home as HomeIcon, User } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
-import { useAuth } from "../contexts/AuthContext";
 import { motion } from "motion/react";
-import { Button } from "./ui/button";
+import { UserButton } from "@stackframe/react";
 
 export function RootLayout() {
   const { totalItems, animateCart } = useCart();
-  const { isAuthenticated, user, logout } = useAuth();
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
@@ -21,18 +19,7 @@ export function RootLayout() {
             <span className="font-semibold text-lg text-[#003865]">CharityAid</span>
           </Link>
           <div className="flex items-center gap-4">
-            {isAuthenticated ? (
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">{user?.name}</span>
-                <button onClick={logout} className="text-gray-600 hover:text-gray-800">
-                  <LogOut className="w-4 h-4" />
-                </button>
-              </div>
-            ) : (
-              <Link to="/login">
-                <User className="w-5 h-5 text-gray-600" />
-              </Link>
-            )}
+            <UserButton />
             <Link to="/cart" className="relative">
               <motion.div
                 animate={animateCart ? { scale: [1, 1.3, 1] } : { scale: 1 }}

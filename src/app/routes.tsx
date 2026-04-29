@@ -5,8 +5,13 @@ import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Checkout } from "./pages/Checkout";
+import StackAuthHandler from "./pages/StackAuthHandler";
 
 export const router = createBrowserRouter([
+  {
+    path: "/handler/*",
+    Component: StackAuthHandler,
+  },
   {
     path: "/",
     Component: RootLayout,
