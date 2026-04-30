@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { ShoppingCart, Heart, Home as HomeIcon, User } from "lucide-react";
+import { ShoppingCart, Handshake, Home as HomeIcon, User } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import { motion } from "motion/react";
 import { UserButton } from "@stackframe/react";
@@ -15,7 +15,7 @@ export function RootLayout() {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b">
         <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <Heart className="w-6 h-6 text-orange-500 fill-orange-500" />
+            <Handshake className="w-6 h-6 text-orange-500 fill-orange-100" />
             <span className="font-semibold text-lg text-[#003865]">CharityAid</span>
           </Link>
           <div className="flex items-center gap-4">
@@ -45,27 +45,24 @@ export function RootLayout() {
         <div className="max-w-md mx-auto px-4 py-3 flex justify-around">
           <Link
             to="/"
-            className={`flex flex-col items-center gap-1 ${
-              isActive("/") ? "text-orange-500" : "text-gray-500"
-            }`}
+            className={`flex flex-col items-center gap-1 ${isActive("/") ? "text-orange-500" : "text-gray-500"
+              }`}
           >
             <HomeIcon className="w-5 h-5" />
             <span className="text-xs">Home</span>
           </Link>
           <Link
             to="/cart"
-            className={`flex flex-col items-center gap-1 ${
-              isActive("/cart") ? "text-orange-500" : "text-gray-500"
-            }`}
+            className={`flex flex-col items-center gap-1 ${isActive("/cart") ? "text-orange-500" : "text-gray-500"
+              }`}
           >
             <ShoppingCart className="w-5 h-5" />
             <span className="text-xs">Cart</span>
           </Link>
           <Link
             to="/login"
-            className={`flex flex-col items-center gap-1 ${
-              isActive("/login") || isActive("/signup") ? "text-orange-500" : "text-gray-500"
-            }`}
+            className={`flex flex-col items-center gap-1 ${isActive("/login") || isActive("/signup") ? "text-orange-500" : "text-gray-500"
+              }`}
           >
             <User className="w-5 h-5" />
             <span className="text-xs">Account</span>

@@ -9,7 +9,7 @@ export const aidItems: AidItem[] = [
       "10kg rice package to feed a family for a month",
     price: 25,
     image:
-      "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop",
+      "https://www.endofthefork.com/wp-content/uploads/2017/03/1200x1200-boiled-fluffy-rice.jpg",
   },
   {
     id: "2",
@@ -19,7 +19,7 @@ export const aidItems: AidItem[] = [
       "1kg premium coffee beans for local communities",
     price: 15,
     image:
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop",
+      "https://wallpaperaccess.com/full/2389927.jpg",
   },
   {
     id: "3",
@@ -29,7 +29,7 @@ export const aidItems: AidItem[] = [
       "Essential nutrition for children and families",
     price: 18,
     image:
-      "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=300&fit=crop",
+      "https://bakeitwithlove.com/wp-content/uploads/2022/08/sweetened-condensed-milk-vs-evaporated-milk-sq.jpg.webp",
   },
   {
     id: "4",
@@ -38,7 +38,7 @@ export const aidItems: AidItem[] = [
     description: "Warm jackets, sweaters, and blankets",
     price: 45,
     image:
-      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=300&fit=crop",
+      "https://tse2.mm.bing.net/th/id/OIP.7MJ_0DEqF9o4wLokFBJkgAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: "5",
@@ -47,7 +47,7 @@ export const aidItems: AidItem[] = [
     description: "Complete clothing set for kids aged 5-10",
     price: 30,
     image:
-      "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=300&fit=crop",
+      "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400&h=300&fit=crop",
   },
   {
     id: "6",
@@ -56,7 +56,7 @@ export const aidItems: AidItem[] = [
     description: "Assorted canned vegetables and protein",
     price: 22,
     image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop",
+      "https://media.gettyimages.com/id/459027539/photo/large-assortment-of-canned-foods.jpg?s=612x612&w=gi&k=20&c=5f33ZXyuGgVSUN_4lmWszost28SbArmvZ1Jd8BK5-FA=",
   },
   {
     id: "7",
@@ -65,7 +65,7 @@ export const aidItems: AidItem[] = [
     description: "Long-lasting nutrition for families",
     price: 28,
     image:
-      "https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=400&h=300&fit=crop",
+      "https://tse2.mm.bing.net/th/id/OIP.sxtZEAriXHj-yVkpemSGmQHaG8?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     id: "8",
@@ -74,24 +74,15 @@ export const aidItems: AidItem[] = [
     description: "Essential clothing items for adults",
     price: 35,
     image:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=300&fit=crop",
+      "https://i5.walmartimages.com/seo/CAPHAUS-67-Inch-Clothing-Rack-Cover-Portable-Closet-Wardrobe-Covered-Garment-Rack-Hanging-Clothes-520LB-Capacity-Heavy-Duty-Metal-Frame-Clothes-Organ_cd7ded6a-28d0-4142-859f-435f5ea569a3.8f8dac5e373cb5ddee2a729bfb561c4b.jpeg",
   },
   {
     id: "9",
-    name: "Pasta & Grains Pack",
-    category: "Food",
-    description: "5kg of pasta, lentils, and grains",
-    price: 20,
-    image:
-      "https://images.unsplash.com/photo-1551462147-37056a5bf5b5?w=400&h=300&fit=crop",
-  },
-  {
-    id: "10",
     name: "Baby Clothing Set",
     category: "Clothes",
     description: "Complete clothing for infants 0-2 years",
     price: 25,
     image:
-      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&h=300&fit=crop",
+      "https://i5.walmartimages.com/seo/BAMBOOHOMIE-Baby-Clothing-Rack-for-Baby-Shower-Pets-Dolls-Baby-Clothes-Rack-with-Storage-Shelf-Double-Rods-Toddler-Clothes-Rack-Baby-Shower-Rack_8e26bb29-dcfa-485f-83b0-f7d59f6323ef.2be03e56301a1cf8d00da1b8f0f68bb2.jpeg",
   },
 ];
