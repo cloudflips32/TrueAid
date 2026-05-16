@@ -5,6 +5,7 @@ import { router } from "./routes";
 import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { stackClientApp } from "../stack/client";
+import { Analytics } from "@vercel/analytics/react";
 import Loading from "./loading";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
             </CartProvider>
           </AuthProvider>
         </Suspense>
+        <Analytics />
       </StackTheme>
     </StackProvider>
   );
