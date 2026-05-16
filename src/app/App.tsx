@@ -12,6 +12,7 @@ export default function App() {
   return (
     <StackProvider app={stackClientApp}>
       <StackTheme>
+        <Analytics />
         <Suspense fallback={<Loading />}>
           <AuthProvider>
             <CartProvider>
@@ -19,7 +20,6 @@ export default function App() {
             </CartProvider>
           </AuthProvider>
         </Suspense>
-        <Analytics />
       </StackTheme>
     </StackProvider>
   );
