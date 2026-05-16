@@ -28,7 +28,7 @@ export function Cart() {
           Start adding aid items to make a difference
         </p>
         <Button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
           className="bg-orange-500 hover:bg-orange-600"
         >
           Browse Items

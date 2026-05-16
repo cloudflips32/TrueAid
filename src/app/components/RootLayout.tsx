@@ -14,7 +14,7 @@ export function RootLayout() {
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white pb-20">
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b">
         <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/home" className="flex items-center gap-2">
             <Handshake className="w-6 h-6 text-orange-500 fill-orange-100" />
             <span className="font-semibold text-lg text-[#003865]">CharityAid</span>
           </Link>
@@ -44,8 +44,8 @@ export function RootLayout() {
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t">
         <div className="max-w-md mx-auto px-4 py-3 flex justify-around">
           <Link
-            to="/"
-            className={`flex flex-col items-center gap-1 ${isActive("/") ? "text-orange-500" : "text-gray-500"
+            to="/home"
+            className={`flex flex-col items-center gap-1 ${isActive("/home") ? "text-orange-500" : "text-gray-500"
               }`}
           >
             <HomeIcon className="w-5 h-5" />

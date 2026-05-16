@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router";
+import { loadStripe } from "@stripe/stripe-js";
 import { countries } from "../data/countries";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
@@ -17,7 +18,7 @@ import { MapPin, Package, CreditCard, Check } from "lucide-react";
 import { motion } from "motion/react";
 
 export function Checkout() {
-  const { totalPrice, totalItems, clearCart } = useCart();
+  const { items, totalPrice, totalItems, clearCart } = useCart();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -33,22 +34,40 @@ export function Checkout() {
 
   const selectedCountryData = countries.find((c) => c.id === selectedCountry);
 
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = async () => {
     if (!selectedCountry || !selectedCity) {
       return;
     }
 
     setIsProcessing(true);
 
-    setTimeout(() => {
-      setIsProcessing(false);
-      setOrderComplete(true);
+    try {
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items,
+          success_url: `${window.location.origin}/?success=true`,
+          cancel_url: `${window.location.origin}/checkout`,
+        }),
+      });
 
-      setTimeout(() => {
-        clearCart();
-        navigate("/");
-      }, 3000);
-    }, 2000);
+      const { url, error } = await response.json();
+
+      if (error) {
+        throw new Error(error);
+      }
+
+      if (url) {
+        window.location.href = url;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      setIsProcessing(false);
+      // You might want to show a toast or error message here
+    }
   };
 
   if (orderComplete) {
@@ -154,20 +173,6 @@ export function Checkout() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3 mb-4">
-              <CreditCard className="w-5 h-5 text-orange-500" />
-              <h3 className="font-semibold">Payment Method</h3>
-            </div>
-            <p className="text-sm text-gray-600">
-              Payment integration: <code className="bg-gray-100 px-2 py-1 rounded text-xs">STACK_AUTH_API_KEY</code>
-            </p>
-            <p className="text-xs text-gray-500 mt-2">
-              Configure Stack Auth at: <code>https://app.stack-auth.com</code>
-            </p>
-          </CardContent>
-        </Card>
       </div>
 
       <div className="fixed bottom-20 left-0 right-0 bg-white border-t p-4 shadow-lg">
@@ -178,7 +183,7 @@ export function Checkout() {
             className="w-full bg-[#003865] hover:bg-[#002850] disabled:bg-gray-300"
             size="lg"
           >
-            {isProcessing ? "Processing..." : "Place Order"}
+            {isProcessing ? "Processing..." : "Pay with Stripe"}
           </Button>
         </div>
       </div>
