@@ -3,6 +3,7 @@ import { ShoppingCart, Handshake, Home as HomeIcon, User } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import { motion } from "motion/react";
 import { UserButton } from "@stackframe/react";
+import { Analytics } from "@vercel/analytics/react";
 
 export function RootLayout() {
   const { totalItems, animateCart } = useCart();
@@ -69,6 +70,7 @@ export function RootLayout() {
           </Link>
         </div>
       </nav>
+      <Analytics />
     </div>
   );
 }
