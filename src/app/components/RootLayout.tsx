@@ -17,7 +17,7 @@ export function RootLayout() {
         <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/home" className="flex items-center gap-2">
             <Handshake className="w-6 h-6 text-orange-500 fill-orange-100" />
-            <span className="font-semibold text-lg text-[#003865]">CharityAid</span>
+            <span className="font-semibold text-lg text-[#003865]">TrueAid</span>
           </Link>
           <div className="flex items-center gap-4">
             <UserButton />
