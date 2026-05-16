@@ -2,11 +2,9 @@
 
 TrueAid is a modern, impact-driven platform designed to connect global generosity with local needs. We specialize in the direct delivery of essential food, healthcare, and humanitarian aid to communities in need around the world.
 
-<div style="text-align: center; margin: 0 auto; display: block;">
-    <img src="public/iPhone-13-PRO-true-aid.vercel.app.png" 
-    width="375px" height="750px" 
-    />
-</div>
+<p align="center">
+    <img src="public/iPhone-13-PRO-true-aid.vercel.app.png" width="375" />
+</p>
 
 ## 🌍 Our Mission
 
