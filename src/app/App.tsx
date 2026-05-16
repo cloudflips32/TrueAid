@@ -5,14 +5,14 @@ import { router } from "./routes";
 import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { stackClientApp } from "../stack/client";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Loading from "./loading";
 
 export default function App() {
   return (
     <StackProvider app={stackClientApp}>
       <StackTheme>
-        <Analytics />
         <Suspense fallback={<Loading />}>
           <AuthProvider>
             <CartProvider>
@@ -20,6 +20,8 @@ export default function App() {
             </CartProvider>
           </AuthProvider>
         </Suspense>
+        <Analytics />
+        <SpeedInsights />
       </StackTheme>
     </StackProvider>
   );
