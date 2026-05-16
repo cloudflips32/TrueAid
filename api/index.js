@@ -19,6 +19,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3001;
 
+// For Vercel, the route will be relative to /api, so we change /api/create-checkout-session to /create-checkout-session
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { items, success_url, cancel_url } = req.body;
@@ -50,6 +51,11 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+export default app;
