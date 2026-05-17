@@ -12,8 +12,9 @@ To bridge the gap between those who want to help and those who need it most, pro
 
 ## ✨ Key Features
 
-- **Direct Aid Items**: Browse and "purchase" specific aid items like flour, rice, and medical kits.
-- **Secure Payments**: Fully integrated with **Stripe Checkout** for safe international transactions.
+- **Dynamic Stripe Catalog**: Live catalog powered directly by active Stripe products and prices, removing the need for static mockup files.
+- **High-Performance Caching**: Embedded server-side caching that pre-warms and retrieves your Stripe product listings in `< 1ms` to avoid API rate limits.
+- **Secure Stripe Checkout**: Secure redirects using actual, tampered-proof **Stripe Price IDs** instead of dynamic client-side amount declarations.
 - **User Authentication**: Secure sign-in and account management powered by **Stack Auth**.
 - **Cinematic Experience**: Immersive landing page featuring real-world humanitarian footage.
 - **Mobile-First Design**: Optimized for on-the-go giving, with a responsive layout for tablets and desktops.
@@ -21,7 +22,7 @@ To bridge the gap between those who want to help and those who need it most, pro
 ## 🛠️ Tech Stack
 
 - **Frontend**: React, Vite, Tailwind CSS, Lucide Icons, Framer Motion.
-- **Backend**: Node.js, Express (for secure Stripe session handling).
+- **Backend**: Node.js, Express (Stripe product loading, secure caching, and checkout session handling).
 - **Payments**: Stripe API.
 - **Auth**: Stack Auth SDK.
 
@@ -64,13 +65,15 @@ To run both the Vite frontend and the Express backend simultaneously:
 npm run dev:all
 ```
 
+On server boot, the backend automatically retrieves active products directly from your Stripe account, maps them to the application layout, and caches them for maximum performance.
+
 - **Frontend**: [http://localhost:5173](http://localhost:5173)
 - **Backend (API)**: [http://localhost:3001](http://localhost:3001)
 
 ## 📁 Project Structure
 
+- `/api`: Express server, dynamic Stripe product retrieval (`sync.js`), and session routes.
 - `/src`: React frontend application.
-- `/server`: Express server for handling Stripe sessions.
 - `/public`: Static assets, including the `hero-background.mp4`.
 - `/src/app/pages`: Main application views (Landing, Home, Cart, Checkout).
 - `/src/app/contexts`: State management for Auth and Cart.
