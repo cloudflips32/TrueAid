@@ -9,9 +9,6 @@ import SafetyResources from "../components/SafetyResources";
 import Footer from "../components/Footer";
 
 export function Home() {
-
-
-
   return (
     <div className="w-full bg-white text-gray-900 pb-12 overflow-x-hidden font-sans">
       <Hero />
