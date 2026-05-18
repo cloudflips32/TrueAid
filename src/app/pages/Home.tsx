@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import LiveTicker from "../components/LiveTicker";
 
 import { useState, useEffect } from "react";
 import { useCart, AidItem } from "../contexts/CartContext";
@@ -6,8 +7,8 @@ import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import {
-  Plus, Play, ArrowRight, Award, Shield, FileText,
-  Quote, MapPin, Calendar, Heart, ChevronLeft, ChevronRight, Activity, Clock
+  Plus, ArrowRight, Award, Shield, FileText,
+  Quote, MapPin, Calendar, Heart, ChevronLeft, ChevronRight, Clock
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -36,8 +37,6 @@ const TESTIMONIALS = [
     location: "Logistics Hub East"
   }
 ];
-
-const Video = "video" as any;
 
 function SkeletonCard() {
   return (
@@ -120,54 +119,8 @@ export function Home() {
 
       {/* 1. Immersive Hero Section (Full-Width Stock Video) */}
       <Hero />
-
       {/* 2. "What's New" Live Ticker Section */}
-      <section className="bg-[#111827] text-white py-3.5 border-y border-gray-800 overflow-hidden relative select-none">
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 35s linear infinite;
-          }
-          .animate-marquee:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
-
-        <div className="flex w-[200%] animate-marquee whitespace-nowrap text-xs font-semibold uppercase tracking-wider gap-12 items-center">
-          {/* Dispatch loop 1 */}
-          <div className="flex gap-12 items-center">
-            <span className="flex items-center gap-2 text-orange-400">
-              <span className="w-2 h-2 bg-orange-500 rounded-full animate-ping" />
-              Live Dispatch: 150 Hot Meals distributed in Evacuation Center A
-            </span>
-            <span className="text-gray-400">•</span>
-            <span className="text-white">Active Cargo: 40 Winter Fleece Blankets shipped to Border Hub</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-green-400">Security Check: 100% direct recipient delivery confirmed in Sector 4</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-white">Live Dispatch: 60 Liters pure drinking water supplied to Village 12</span>
-            <span className="text-gray-400">•</span>
-          </div>
-          {/* Dispatch loop 2 */}
-          <div className="flex gap-12 items-center">
-            <span className="flex items-center gap-2 text-orange-400">
-              <span className="w-2 h-2 bg-orange-500 rounded-full animate-ping" />
-              Live Dispatch: 150 Hot Meals distributed in Evacuation Center A
-            </span>
-            <span className="text-gray-400">•</span>
-            <span className="text-white">Active Cargo: 40 Winter Fleece Blankets shipped to Border Hub</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-green-400">Security Check: 100% direct recipient delivery confirmed in Sector 4</span>
-            <span className="text-gray-400">•</span>
-            <span className="text-white">Live Dispatch: 60 Liters pure drinking water supplied to Village 12</span>
-            <span className="text-gray-400">•</span>
-          </div>
-        </div>
-      </section>
-
+      <LiveTicker />
       {/* 3. Active Aid Catalog Carousel (Responsive Carousel) */}
       <section id="active-aid-catalog" className="w-full bg-[#F9FAFB] py-20 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
