@@ -2,7 +2,7 @@ import { SignIn } from "@stackframe/react";
 
 export function Login() {
   return (
-    <div className="flex justify-center items-center h-screen my-[-25%] mx-16">
+    <div className="flex justify-center items-center h-screen my-[-20%] md:my-[-16%] lg:my-[-10%] xl:my-[-5%] 2xl:my-0 mx-16">
       <SignIn />
     </div>
   );

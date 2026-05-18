@@ -3,7 +3,9 @@ import { Button } from "../components/ui/button";
 import { motion } from "motion/react";
 import { Handshake } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
+
+const Video = "video" as any;
 
 export function Landing() {
   const navigate = useNavigate();
@@ -18,8 +20,8 @@ export function Landing() {
   return (
     <div className="relative min-h-screen bg-white overflow-hidden flex flex-col">
       {/* Video Container (roughly 80% height) */}
-      <div className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden bg-black">
-        <video
+      <div className="relative h-[67vh] md:h-[75vh] w-full overflow-hidden bg-black">
+        <Video
           autoPlay
           loop
           muted

@@ -89,7 +89,7 @@ export function Checkout() {
   }
 
   return (
-    <div className="p-4 pb-32">
+    <div className="max-w-4xl mx-auto p-4 py-8 pb-32">
       <h1 className="text-2xl font-bold mb-6">Checkout</h1>
 
       <div className="space-y-6">
@@ -175,7 +175,7 @@ export function Checkout() {
 
       </div>
 
-      <div className="fixed bottom-20 left-0 right-0 bg-white border-t p-4 shadow-lg">
+      <div className="fixed bottom-20 md:bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t p-4 shadow-lg z-30">
         <div className="max-w-md mx-auto">
           <Button
             onClick={handlePlaceOrder}
