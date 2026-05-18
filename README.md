@@ -1,6 +1,6 @@
-# TrueAid - Lending Hands Abroad
+# TrueAid — Direct Aid Delivery & Operations Hub
 
-TrueAid is a modern, impact-driven platform designed to connect global generosity with local needs. We specialize in the direct delivery of essential food, healthcare, and humanitarian aid to communities in need around the world.
+TrueAid is an ultra-premium, high-performance, impact-driven platform designed to connect global generosity with local humanitarian needs. We bypass traditional administrative red tape to coordinate secure, on-the-ground food networks, warm blankets, and hot beverage distributions directly to evacuation centers and high-need regions globally.
 
 <p align="center">
     <img src="public/iPhone-13-PRO-true-aid.vercel.app.png" width="375" />
@@ -8,47 +8,68 @@ TrueAid is a modern, impact-driven platform designed to connect global generosit
 
 ## 🌍 Our Mission
 
-To bridge the gap between those who want to help and those who need it most, providing a transparent, secure, and efficient way to deliver tangible aid across borders.
+To bridge the gap between global donors and direct field recipients, ensuring absolute transparency, secure routing, and lightning-fast logistics to deliver tangible relief across borders.
 
-## ✨ Key Features
+---
 
-- **Dynamic Stripe Catalog**: Live catalog powered directly by active Stripe products and prices, removing the need for static mockup files.
-- **High-Performance Caching**: Embedded server-side caching that pre-warms and retrieves your Stripe product listings in `< 1ms` to avoid API rate limits.
-- **Secure Stripe Checkout**: Secure redirects using actual, tampered-proof **Stripe Price IDs** instead of dynamic client-side amount declarations.
-- **User Authentication**: Secure sign-in and account management powered by **Stack Auth**.
-- **Cinematic Experience**: Immersive landing page featuring real-world humanitarian footage.
-- **Mobile-First Design**: Optimized for on-the-go giving, with a responsive layout for tablets and desktops.
+## ✨ Key Features & Architectural Upgrades
+
+### 🎨 Premium UI & Interactive Experiences
+- **Plus Jakarta Sans Typography**: Standardized visual system powered by the sleek, modern `Plus Jakarta Sans` Google Font imported directly through our core design system.
+- **Immersive Video Hero Section**: Features a seamless looping background video (`/hero-background.mp4`) with rich, dark HSL gradient overlays and action buttons ("Deliver Aid Now" & "Support Our Mission").
+- **"What's New" Live Ticker**: An auto-scrolling marquee bar showing real-time dispatch logs (meals distributed, cargo shipped, safety checks passed) that pauses smoothly on hover.
+- **Active Aid Catalog Carousel**: A custom Radix/Shadcn-powered sliding carousel showcasing aid items with active category filters ("All", "Food", "Coffee", "Clothes"), complete with animated skeleton loaders and a gorgeous, gradient-infused offline fallback layout.
+- **Stories of Hope Slider**: An interactive, animated testimonial section powered by `Framer Motion` displaying direct feedback from local leaders.
+- **Upcoming Relief Drives Calendar**: Interactive calendar cards highlighting upcoming drives (Winter Shelter Warmth Drive in NY, Packing Crate Workshop in London, First Aid Field Training in Chicago) with map pins, dates, and sign-up flows.
+- **Guides & Safety Resource Center**: A card-based downloadable PDF handbook vault (Nutrition Standards, Cold Safety, Sanitation Standards, Soup Kitchen Setup) built specifically for field operators.
+- **Premium Mega Footer**: Bold action buttons ("Request Emergency Aid", "Apply for a Local Hub", "Donate to Active Fund") coupled with deep corporate resource mapping (Recipient Services, Volunteers, Legal, and Resources).
+
+### ⚡ Refined Global Navigation (`RootLayout`)
+- **Sticky Dropdown Flyout Header**: Transparent, blur-backed (`backdrop-blur-md`) sticky bar with animated hover states.
+- **Aid Categories Mega Panel**: A custom animated dropdown containing organized links to relief sectors, logistical tracking maps, partner desks, and 100% direct-delivery promotion banners.
+- **Mobile-First Tab Navigation**: Dedicated bottom navigation bar providing quick tab transitions (Home, Cart, Account) optimized for on-the-go mobile devices.
+- **Cart Context with Micro-Animations**: Shopping cart counter badges with spring-scaling micro-animations triggered whenever items are added.
+
+### ⚙️ Stripe Syncing & Caching Backend
+- **Pre-Warmed Server-Side Caching**: Proactive server synchronization at startup fetches active products directly from the Stripe API, sorts them by custom metadata (`aid_item_id`), and stores them in an in-memory cache, enabling `< 1ms` catalog load times and preventing Stripe API rate limiting.
+- **Secure Stripe Checkout Integration**: Fully integrated with **Stripe Checkout**, mapping cart items directly to actual, tamper-proof **Stripe Price IDs** instead of dynamic client-side amount declarations.
+- **Dynamic Metadata Parsing**: Automatically reads product categories and operational descriptions directly from Stripe dashboard metadata on the fly.
+- **User Authentication**: Secure user registration, sign-in, and account management powered directly by the **Stack Auth SDK**.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, Vite, Tailwind CSS, Lucide Icons, Framer Motion.
-- **Backend**: Node.js, Express (Stripe product loading, secure caching, and checkout session handling).
-- **Payments**: Stripe API.
+- **Frontend**: React 18, Vite 6, Tailwind CSS v4, Lucide Icons, Framer Motion.
+- **Backend**: Node.js, Express (Stripe product syncing, in-memory caching, and checkout session generation).
+- **Payments & Billing**: Stripe API (Metadata-mapped product catalog).
 - **Auth**: Stack Auth SDK.
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- A Stripe account (for API keys)
-- A Stack Auth project
+- A Stripe Developer Account (for API keys)
+- A Stack Auth Project
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/cloudflips32/TrueAid.git
    cd TrueAid
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. Configure Environment Variables:
-   Create a `.env` file in the root directory and add your keys:
+3. **Configure Environment Variables**:
+   Create a `.env` file in the root directory and configure your keys:
    ```env
    # Stripe Keys
    STRIPE_SECRET_KEY=sk_test_...
@@ -59,24 +80,28 @@ To bridge the gap between those who want to help and those who need it most, pro
 
 ### Running the App
 
-To run both the Vite frontend and the Express backend simultaneously:
+To boot both the React Vite frontend and the Express backend simultaneously in development mode:
 
 ```bash
 npm run dev:all
 ```
 
-On server boot, the backend automatically retrieves active products directly from your Stripe account, maps them to the application layout, and caches them for maximum performance.
+On server boot, the backend automatically performs the initial synchronization with your Stripe account, maps products to the application layout, and caches them.
 
-- **Frontend**: [http://localhost:5173](http://localhost:5173)
-- **Backend (API)**: [http://localhost:3001](http://localhost:3001)
+- **Vite Frontend**: [http://localhost:5173](http://localhost:5173)
+- **Express API Backend**: [http://localhost:3001](http://localhost:3001)
+
+---
 
 ## 📁 Project Structure
 
-- `/api`: Express server, dynamic Stripe product retrieval (`sync.js`), and session routes.
+- `/api`: Express backend, Stripe product retrieval/sorting (`sync.js`), and checkout session routes.
 - `/src`: React frontend application.
-- `/public`: Static assets, including the `hero-background.mp4`.
-- `/src/app/pages`: Main application views (Landing, Home, Cart, Checkout).
-- `/src/app/contexts`: State management for Auth and Cart.
+  - `/src/app/components`: Global layout components, dropdown menus, and standard UI elements.
+  - `/src/app/pages`: Core pages (Landing, Home, Cart, Checkout, Login).
+  - `/src/app/contexts`: Global state managers (Auth, Cart).
+  - `/src/styles`: Google Font imports and visual layout CSS overrides.
+- `/public`: Static public assets, including `/hero-background.mp4`.
 
 ---
 
