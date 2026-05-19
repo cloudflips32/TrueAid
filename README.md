@@ -15,6 +15,7 @@ To bridge the gap between global donors and direct field recipients, ensuring ab
 ## ✨ Key Features & Architectural Upgrades
 
 ### 🎨 Premium UI & Interactive Experiences
+- **Highly Modular Component Architecture**: Restructured the monolithic homepage into high-cohesion, single-responsibility subcomponents to improve code maintainability, testing scalability, and rendering efficiency.
 - **Plus Jakarta Sans Typography**: Standardized visual system powered by the sleek, modern `Plus Jakarta Sans` Google Font imported directly through our core design system.
 - **Immersive Video Hero Section**: Features a seamless looping background video (`/hero-background.mp4`) with rich, dark HSL gradient overlays and action buttons ("Deliver Aid Now" & "Support Our Mission").
 - **"What's New" Live Ticker**: An auto-scrolling marquee bar showing real-time dispatch logs (meals distributed, cargo shipped, safety checks passed) that pauses smoothly on hover.
@@ -23,6 +24,10 @@ To bridge the gap between global donors and direct field recipients, ensuring ab
 - **Upcoming Relief Drives Calendar**: Interactive calendar cards highlighting upcoming drives (Winter Shelter Warmth Drive in NY, Packing Crate Workshop in London, First Aid Field Training in Chicago) with map pins, dates, and sign-up flows.
 - **Guides & Safety Resource Center**: A card-based downloadable PDF handbook vault (Nutrition Standards, Cold Safety, Sanitation Standards, Soup Kitchen Setup) built specifically for field operators.
 - **Premium Mega Footer**: Bold action buttons ("Request Emergency Aid", "Apply for a Local Hub", "Donate to Active Fund") coupled with deep corporate resource mapping (Recipient Services, Volunteers, Legal, and Resources).
+
+### 🛠️ Crash-Proof CSS & Design Tokens (Tailwind v4)
+- **Unified Style Architecture**: Built on Tailwind CSS v4's modern stylesheet directives (`@import 'tailwindcss'`), using native custom variables and `@custom-variant dark` properties for an ultra-premium layout.
+- **Zero-Lock File System**: Eliminated the redundant `fonts.css` and combined its font-families and typography settings directly into `index.css` and `theme.css`. This resolved recurring Windows and OneDrive file-watching locking crashes (`EPERM`), ensuring extremely fast hot-reloading (HMR) and a 100% stable build pipeline.
 
 ### ⚡ Refined Global Navigation (`RootLayout`)
 - **Sticky Dropdown Flyout Header**: Transparent, blur-backed (`backdrop-blur-md`) sticky bar with animated hover states.
@@ -97,7 +102,16 @@ On server boot, the backend automatically performs the initial synchronization w
 
 - `/api`: Express backend, Stripe product retrieval/sorting (`sync.js`), and checkout session routes.
 - `/src`: React frontend application.
-  - `/src/app/components`: Global layout components, dropdown menus, and standard UI elements.
+  - `/src/app/components`: Reusable layout components and UI elements, now refactored into high-cohesion, single-responsibility subcomponents:
+    - `Hero.tsx`: Immersive video hero section with smooth Framer Motion entry animations.
+    - `LiveTicker.tsx`: Seamless, auto-scrolling dispatch ticker with marquee micro-animations.
+    - `AidCarousel.tsx`: Active Aid Catalog with Tailwind category badges, skeleton loaders, and Stripe sync interfaces.
+    - `LogisticsTransparency.tsx`: Interactive asymmetric image collage and technical operation transparency indicators.
+    - `HubEngagement.tsx`: Double-column split layout for volunteer and hub coordinator recruitment.
+    - `EventCalendar.tsx`: Map-pinned calendar showcasing upcoming global relief drives and workshops.
+    - `Testimonials.tsx`: Slider presenting verified feedback from field coordinators.
+    - `SafetyResources.tsx`: Library cards indexing downloadable PDF operations handbooks.
+    - `Footer.tsx`: Bold mega-footer action deck mapping corporate resources.
   - `/src/app/pages`: Core pages (Landing, Home, Cart, Checkout, Login).
   - `/src/app/contexts`: Global state managers (Auth, Cart).
   - `/src/styles`: Google Font imports and visual layout CSS overrides.
