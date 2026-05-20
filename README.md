@@ -10,6 +10,10 @@ TrueAid is an ultra-premium, high-performance, impact-driven platform designed t
 
 To bridge the gap between global donors and direct field recipients, ensuring absolute transparency, secure routing, and lightning-fast logistics to deliver tangible relief across borders.
 
+<p align="center">
+  <img src="public/precise_service_map.png" alt="TrueAid Precise Global Operations & Service Map" width="800" />
+</p>
+
 ---
 
 ## ✨ Key Features & Architectural Upgrades
