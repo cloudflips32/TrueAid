@@ -18,7 +18,7 @@ export function Landing() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden flex flex-col">
+    <div className="relative min-h-screen bg-white dark:bg-slate-950 overflow-hidden flex flex-col transition-colors duration-300">
       {/* Video Container (roughly 80% height) */}
       <div className="relative h-[67vh] md:h-[75vh] w-full overflow-hidden bg-black">
         <Video
@@ -55,7 +55,7 @@ export function Landing() {
       </div>
 
       {/* Action Buttons (bottom section) */}
-      <div className="flex-1 flex flex-col justify-center items-center gap-4 p-8 bg-white">
+      <div className="flex-1 flex flex-col justify-center items-center gap-4 p-8 bg-white dark:bg-slate-900/40 transition-colors duration-300">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export function Landing() {
           <Button
             onClick={() => navigate("/signup")}
             variant="outline"
-            className="flex-1 h-14 text-lg font-semibold border-2 border-orange-500 text-orange-600 hover:bg-orange-50 rounded-xl transition-all active:scale-95"
+            className="flex-1 h-14 text-lg font-semibold border-2 border-orange-500 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950/20 rounded-xl transition-all active:scale-95"
           >
             Start Helping Now
           </Button>

@@ -22,17 +22,17 @@ const AidCarousel = () => {
 
     function SkeletonCard() {
         return (
-            <Card className="overflow-hidden border border-gray-100 shadow-sm animate-pulse">
-                <div className="w-full h-56 bg-gray-200" />
+            <Card className="overflow-hidden border border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-850 shadow-sm animate-pulse">
+                <div className="w-full h-56 bg-gray-200 dark:bg-slate-850" />
                 <CardContent className="p-5 space-y-3">
-                    <div className="h-6 bg-gray-200 rounded w-3/4" />
+                    <div className="h-6 bg-gray-200 dark:bg-slate-800 rounded w-3/4" />
                     <div className="space-y-2">
-                        <div className="h-4 bg-gray-200 rounded w-full" />
-                        <div className="h-4 bg-gray-200 rounded w-5/6" />
+                        <div className="h-4 bg-gray-200 dark:bg-slate-800 rounded w-full" />
+                        <div className="h-4 bg-gray-200 dark:bg-slate-800 rounded w-5/6" />
                     </div>
                     <div className="flex items-center justify-between pt-2">
-                        <div className="h-6 bg-gray-200 rounded w-16" />
-                        <div className="h-9 bg-gray-200 rounded w-28" />
+                        <div className="h-6 bg-gray-200 dark:bg-slate-800 rounded w-16" />
+                        <div className="h-9 bg-gray-200 dark:bg-slate-800 rounded w-28" />
                     </div>
                 </CardContent>
             </Card>
@@ -78,28 +78,28 @@ const AidCarousel = () => {
         : items.filter(item => item.category === filter);
 
     return (
-        <section id="active-aid-catalog" className="w-full bg-[#F9FAFB] py-20 border-b border-gray-100">
+        <section id="active-aid-catalog" className="w-full bg-[#F9FAFB] dark:bg-slate-900/50 py-20 border-b border-gray-100 dark:border-slate-800 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Section Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
                     <div className="space-y-2">
-                        <h2 className="text-xs font-bold uppercase tracking-widest text-[#003865]">Essentials Relief</h2>
-                        <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Active Aid Catalog</h3>
-                        <p className="text-gray-500 max-w-xl text-sm font-medium">
+                        <h2 className="text-xs font-bold uppercase tracking-widest text-[#003865] dark:text-blue-400">Essentials Relief</h2>
+                        <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Active Aid Catalog</h3>
+                        <p className="text-gray-500 dark:text-slate-400 max-w-xl text-sm font-medium">
                             Choose essential life-support items. Every dispatch is tracked from logistics hubs directly to target recipients.
                         </p>
                     </div>
 
                     {/* Responsive Filter Badges */}
-                    <div className="flex flex-wrap gap-2 pb-1 border-b border-gray-200 md:border-none">
+                    <div className="flex flex-wrap gap-2 pb-1 border-b border-gray-200 dark:border-slate-800 md:border-none">
                         {categories.map((category) => (
                             <button
                                 key={category}
                                 onClick={() => setFilter(category)}
                                 className={`px-4 py-2 text-xs font-bold rounded-lg uppercase tracking-wider transition-all cursor-pointer ${filter === category
-                                    ? "bg-[#003865] text-white shadow-sm"
-                                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                                    ? "bg-[#003865] dark:bg-blue-600 text-white shadow-sm"
+                                    : "bg-white dark:bg-slate-800 text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700"
                                     }`}
                             >
                                 {category}
@@ -120,7 +120,7 @@ const AidCarousel = () => {
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="max-w-2xl mx-auto bg-gradient-to-br from-white to-gray-50 border border-gray-100 rounded-3xl p-8 sm:p-12 text-center shadow-lg relative overflow-hidden flex flex-col items-center gap-6"
+                        className="max-w-2xl mx-auto bg-gradient-to-br from-white to-gray-50 dark:from-slate-850 dark:to-slate-900 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 sm:p-12 text-center shadow-lg relative overflow-hidden flex flex-col items-center gap-6"
                     >
                         {/* Premium abstract graphic design elements */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -132,10 +132,10 @@ const AidCarousel = () => {
                         </div>
 
                         <div className="space-y-3">
-                            <h4 className="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">
+                            <h4 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                                 Catalog Temporarily Offline
                             </h4>
-                            <p className="text-gray-500 text-sm leading-relaxed max-w-md mx-auto font-medium">
+                            <p className="text-gray-500 dark:text-slate-400 text-sm leading-relaxed max-w-md mx-auto font-medium">
                                 We are currently updating our field logistics paths with active Stripe catalog syncing. Please check back shortly to support our active campaigns.
                             </p>
                         </div>
@@ -143,7 +143,7 @@ const AidCarousel = () => {
                         <div className="flex flex-col sm:flex-row gap-3 w-full justify-center pt-2">
                             <button
                                 onClick={() => fetchItems(true)}
-                                className="bg-[#003865] hover:bg-[#002850] text-white font-bold text-xs h-10 px-6 rounded-xl shadow-md cursor-pointer transition-colors active:scale-95 duration-150"
+                                className="bg-[#003865] dark:bg-blue-600 hover:bg-[#002850] dark:hover:bg-blue-700 text-white font-bold text-xs h-10 px-6 rounded-xl shadow-md cursor-pointer transition-colors active:scale-95 duration-150"
                             >
                                 Reload Catalog
                             </button>
@@ -151,7 +151,7 @@ const AidCarousel = () => {
                                 onClick={() => {
                                     document.getElementById("volunteer-section")?.scrollIntoView({ behavior: "smooth" });
                                 }}
-                                className="bg-white hover:bg-gray-50 text-[#003865] border border-gray-200 font-bold text-xs h-10 px-6 rounded-xl cursor-pointer transition-colors active:scale-95 duration-150"
+                                className="bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-[#003865] dark:text-blue-400 border border-gray-200 dark:border-slate-700 font-bold text-xs h-10 px-6 rounded-xl cursor-pointer transition-colors active:scale-95 duration-150"
                             >
                                 Join as Volunteer
                             </button>
@@ -161,20 +161,20 @@ const AidCarousel = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="max-w-md mx-auto bg-white border border-gray-100 rounded-3xl p-8 text-center shadow-md flex flex-col items-center gap-4"
+                        className="max-w-md mx-auto bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-800 rounded-3xl p-8 text-center shadow-md flex flex-col items-center gap-4"
                     >
-                        <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+                        <div className="w-12 h-12 bg-gray-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-gray-400">
                             <Shield className="w-6 h-6" />
                         </div>
                         <div className="space-y-1">
-                            <h4 className="font-extrabold text-gray-900">No Items Found</h4>
-                            <p className="text-xs text-gray-500 font-medium">
+                            <h4 className="font-extrabold text-gray-900 dark:text-white">No Items Found</h4>
+                            <p className="text-xs text-gray-500 dark:text-slate-400 font-medium">
                                 No active supplies match the category "{filter}". Try selecting "All" to view all support options.
                             </p>
                         </div>
                         <button
                             onClick={() => setFilter("All")}
-                            className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs h-9 px-4 rounded-lg cursor-pointer"
+                            className="bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-300 font-bold text-xs h-9 px-4 rounded-lg cursor-pointer"
                         >
                             Reset Filter
                         </button>
@@ -192,9 +192,9 @@ const AidCarousel = () => {
                                             transition={{ duration: 0.4, delay: index * 0.05 }}
                                             className="h-full"
                                         >
-                                            <Card className="overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-white rounded-2xl group">
+                                            <Card className="overflow-hidden border border-gray-100 dark:border-slate-800 hover:shadow-xl dark:hover:shadow-slate-950/40 transition-all duration-300 flex flex-col h-full bg-white dark:bg-slate-900 rounded-2xl group">
                                                 {/* Card Image */}
-                                                <div className="relative h-56 overflow-hidden bg-gray-100">
+                                                <div className="relative h-56 overflow-hidden bg-gray-100 dark:bg-slate-900">
                                                     <img
                                                         src={item.image}
                                                         alt={item.name}
@@ -202,34 +202,34 @@ const AidCarousel = () => {
                                                         loading="lazy"
                                                     />
                                                     <div className="absolute top-4 left-4">
-                                                        <Badge className="bg-white/90 text-gray-800 backdrop-blur-sm border-none shadow-sm hover:bg-white/90 font-bold uppercase tracking-wider text-[10px] px-2.5 py-1">
+                                                        <Badge className="bg-white/90 dark:bg-slate-900/90 text-gray-800 dark:text-slate-100 backdrop-blur-sm border-none shadow-sm hover:bg-white/90 font-bold uppercase tracking-wider text-[10px] px-2.5 py-1">
                                                             {item.category}
                                                         </Badge>
                                                     </div>
                                                 </div>
 
                                                 {/* Card Content */}
-                                                <CardContent className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                                                <CardContent className="p-5 flex-1 flex flex-col justify-between space-y-4 dark:bg-slate-900/30">
                                                     <div className="space-y-2">
-                                                        <h4 className="font-extrabold text-lg text-gray-900 group-hover:text-[#003865] transition-colors leading-tight">
+                                                        <h4 className="font-extrabold text-lg text-gray-900 dark:text-gray-200 dark:bg-transparent group-hover:text-[#003865] dark:group-hover:text-blue-400 transition-colors leading-tight">
                                                             {item.name}
                                                         </h4>
-                                                        <p className="text-xs text-gray-500 font-medium leading-relaxed line-clamp-3">
+                                                        <p className="text-xs text-gray-500 dark:text-slate-400 font-medium leading-relaxed line-clamp-3">
                                                             {item.description}
                                                         </p>
                                                     </div>
 
                                                     {/* Card Price & CTA */}
-                                                    <div className="flex items-center justify-between pt-3 border-t border-gray-50">
+                                                    <div className="flex items-center justify-between pt-3 border-t border-gray-50 dark:border-slate-800">
                                                         <div className="flex flex-col">
-                                                            <span className="text-[10px] uppercase font-bold tracking-wider text-gray-400 leading-none">Impact Price</span>
-                                                            <span className="text-2xl font-extrabold text-orange-500 leading-none pt-1">
+                                                            <span className="text-[10px] uppercase font-bold tracking-wider text-gray-400 dark:text-slate-500 leading-none">Impact Price</span>
+                                                            <span className="text-2xl font-extrabold text-orange-500 dark:text-orange-400 leading-none pt-1">
                                                                 ${item.price.toFixed(2)}
                                                             </span>
                                                         </div>
                                                         <Button
                                                             onClick={() => addToCart(item)}
-                                                            className="bg-[#003865] hover:bg-[#002850] text-white font-bold h-10 px-4 rounded-xl shadow-md border-none flex items-center gap-1.5 active:scale-95 transition-transform cursor-pointer"
+                                                            className="bg-[#003865] dark:bg-blue-600 hover:bg-[#002850] dark:hover:bg-blue-700 text-white font-bold h-10 px-4 rounded-xl shadow-md border-none flex items-center gap-1.5 active:scale-95 transition-transform cursor-pointer"
                                                             size="sm"
                                                         >
                                                             <Plus className="w-4 h-4" />
@@ -245,8 +245,8 @@ const AidCarousel = () => {
 
                             {/* Arrow navigation aligned to sides */}
                             <div className="hidden lg:flex">
-                                <CarouselPrevious className="absolute -left-14 top-1/2 -translate-y-1/2 bg-white text-gray-700 border border-gray-200 shadow-md hover:bg-gray-100 hover:text-[#003865] w-12 h-12 rounded-full cursor-pointer transition-colors" />
-                                <CarouselNext className="absolute -right-14 top-1/2 -translate-y-1/2 bg-white text-gray-700 border border-gray-200 shadow-md hover:bg-gray-100 hover:text-[#003865] w-12 h-12 rounded-full cursor-pointer transition-colors" />
+                                <CarouselPrevious className="absolute -left-14 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 shadow-md hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-[#003865] dark:hover:text-blue-400 w-12 h-12 rounded-full cursor-pointer transition-colors" />
+                                <CarouselNext className="absolute -right-14 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 shadow-md hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-[#003865] dark:hover:text-blue-400 w-12 h-12 rounded-full cursor-pointer transition-colors" />
                             </div>
                         </Carousel>
                     </div>

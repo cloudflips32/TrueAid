@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 export function Home() {
   return (
-    <div className="w-full bg-white text-gray-900 pb-12 overflow-x-hidden font-sans">
+    <div className="w-full bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 pb-12 overflow-x-hidden font-sans transition-colors duration-300">
       <Hero />
       <LiveTicker />
       <AidCarousel />
