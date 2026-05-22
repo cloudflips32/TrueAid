@@ -29,7 +29,7 @@ const SafetyResources = () => {
                     {/* Guide 1 */}
                     <Card className="bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-800 hover:shadow-md transition-shadow rounded-2xl flex flex-col justify-between h-full p-5 group">
                         <div className="space-y-4">
-                            <div className="bg-[#003865]/5 dark:bg-blue-950/30 text-[#003865] dark:text-black p-2 rounded-lg w-10 h-10 flex items-center justify-center">
+                            <div className="bg-orange-500/10 dark:bg-gray-200 text-orange-500 fill-orange-200/50 dark:text-orange-400 p-2 rounded-lg w-10 h-10 flex items-center justify-center">
                                 <FileText className="w-5 h-5" />
                             </div>
                             <h4 className="font-extrabold text-gray-900 dark:text-black group-hover:text-[#003865] dark:group-hover:text-blue-400 transition-colors text-sm leading-snug">
@@ -48,7 +48,7 @@ const SafetyResources = () => {
                     {/* Guide 2 */}
                     <Card className="bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-800 hover:shadow-md transition-shadow rounded-2xl flex flex-col justify-between h-full p-5 group">
                         <div className="space-y-4">
-                            <div className="bg-[#003865]/5 dark:bg-blue-950/30 text-[#003865] dark:text-black p-2 rounded-lg w-10 h-10 flex items-center justify-center">
+                            <div className="bg-orange-500/10 dark:bg-gray-200 text-orange-500 fill-orange-200/50 dark:text-orange-400 p-2 rounded-lg w-10 h-10 flex items-center justify-center">
                                 <FileText className="w-5 h-5" />
                             </div>
                             <h4 className="font-extrabold text-gray-900 dark:text-black group-hover:text-[#003865] dark:group-hover:text-blue-400 transition-colors text-sm leading-snug">
@@ -67,7 +67,7 @@ const SafetyResources = () => {
                     {/* Guide 3 */}
                     <Card className="bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-800 hover:shadow-md transition-shadow rounded-2xl flex flex-col justify-between h-full p-5 group">
                         <div className="space-y-4">
-                            <div className="bg-[#003865]/5 dark:bg-blue-950/30 text-[#003865] dark:text-black p-2 rounded-lg w-10 h-10 flex items-center justify-center">
+                            <div className="bg-orange-500/10 dark:bg-gray-200 text-orange-500 fill-orange-200/50 dark:text-orange-400 p-2 rounded-lg w-10 h-10 flex items-center justify-center">
                                 <FileText className="w-5 h-5" />
                             </div>
                             <h4 className="font-extrabold text-gray-900 dark:text-black group-hover:text-[#003865] dark:group-hover:text-blue-400 transition-colors text-sm leading-snug">
@@ -86,7 +86,7 @@ const SafetyResources = () => {
                     {/* Guide 4 */}
                     <Card className="bg-white dark:bg-slate-850 border border-gray-100 dark:border-slate-800 hover:shadow-md transition-shadow rounded-2xl flex flex-col justify-between h-full p-5 group">
                         <div className="space-y-4">
-                            <div className="bg-[#003865]/5 dark:bg-blue-950/30 text-[#003865] dark:text-black p-2 rounded-lg w-10 h-10 flex items-center justify-center">
+                            <div className="bg-orange-500/10 dark:bg-gray-200 text-orange-500 fill-orange-200/50 dark:text-orange-400 p-2 rounded-lg w-10 h-10 flex items-center justify-center">
                                 <FileText className="w-5 h-5" />
                             </div>
                             <h4 className="font-extrabold text-gray-900 dark:text-black group-hover:text-[#003865] dark:group-hover:text-blue-400 transition-colors text-sm leading-snug">

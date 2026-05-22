@@ -26,7 +26,7 @@ const EventCalendar = () => {
                     >
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="flex items-center gap-1.5 text-xs font-bold text-orange-650 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
+                                <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
                                     <span>MAY 24</span>
                                 </span>
@@ -67,7 +67,7 @@ const EventCalendar = () => {
                     >
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="flex items-center gap-1.5 text-xs font-bold text-orange-650 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
+                                <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
                                     <span>JUN 02</span>
                                 </span>
@@ -108,7 +108,7 @@ const EventCalendar = () => {
                     >
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="flex items-center gap-1.5 text-xs font-bold text-orange-650 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
+                                <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
                                     <span>JUN 15</span>
                                 </span>
