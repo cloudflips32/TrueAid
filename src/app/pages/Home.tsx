@@ -5,6 +5,7 @@ import LogisticsTransparency from "../components/LogisticsTransparency";
 import HubEngagement from "../components/HubEngagement";
 import EventCalendar from "../components/EventCalendar";
 import Testimonials from "../components/Testimonials";
+import SocialHub from "../components/SocialHub";
 import SafetyResources from "../components/SafetyResources";
 import Footer from "../components/Footer";
 
@@ -18,6 +19,7 @@ export function Home() {
       <HubEngagement />
       <EventCalendar />
       <Testimonials />
+      <SocialHub />
       <SafetyResources />
       <Footer />
     </div>

@@ -7,6 +7,8 @@ export interface AidItem {
   description: string;
   price: number;
   image: string;
+  priceId?: string | null;
+  aidItemId?: string;
 }
 
 export interface CartItem extends AidItem {
@@ -22,6 +24,10 @@ interface CartContextType {
   totalItems: number;
   totalPrice: number;
   animateCart: boolean;
+  selectedTargetCountry: string;
+  selectedTargetCity: string;
+  setTargetLocation: (countryId: string, cityName: string) => void;
+  addMultipleToCart: (itemsToAdd: { item: AidItem; quantity: number }[]) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -29,6 +35,13 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [animateCart, setAnimateCart] = useState(false);
+  const [selectedTargetCountry, setSelectedTargetCountry] = useState<string>("");
+  const [selectedTargetCity, setSelectedTargetCity] = useState<string>("");
+
+  const setTargetLocation = (countryId: string, cityName: string) => {
+    setSelectedTargetCountry(countryId);
+    setSelectedTargetCity(cityName);
+  };
 
   const addToCart = (item: AidItem) => {
     setItems((prev) => {
@@ -39,6 +52,27 @@ export function CartProvider({ children }: { children: ReactNode }) {
         );
       }
       return [...prev, { ...item, quantity: 1 }];
+    });
+
+    setAnimateCart(true);
+    setTimeout(() => setAnimateCart(false), 400);
+  };
+
+  const addMultipleToCart = (itemsToAdd: { item: AidItem; quantity: number }[]) => {
+    setItems((prev) => {
+      let nextItems = [...prev];
+      itemsToAdd.forEach(({ item, quantity }) => {
+        const existingIndex = nextItems.findIndex((i) => i.id === item.id);
+        if (existingIndex > -1) {
+          nextItems[existingIndex] = {
+            ...nextItems[existingIndex],
+            quantity: nextItems[existingIndex].quantity + quantity
+          };
+        } else {
+          nextItems.push({ ...item, quantity });
+        }
+      });
+      return nextItems;
     });
 
     setAnimateCart(true);
@@ -77,6 +111,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
         totalItems,
         totalPrice,
         animateCart,
+        selectedTargetCountry,
+        selectedTargetCity,
+        setTargetLocation,
+        addMultipleToCart,
       }}
     >
       {children}
@@ -91,3 +129,4 @@ export function useCart() {
   }
   return context;
 }
+

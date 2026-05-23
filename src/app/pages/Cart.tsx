@@ -78,7 +78,7 @@ export function Cart() {
                         >
                           <Minus className="w-4 h-4" />
                         </button>
-                        <span className="font-medium w-8 text-center">
+                        <span className="font-medium w-8 text-white dark:text-black text-center">
                           {item.quantity}
                         </span>
                         <button
@@ -105,7 +105,7 @@ export function Cart() {
           <div className="flex justify-between mb-4">
             <div>
               <p className="text-sm text-gray-600">Total Items</p>
-              <p className="font-semibold">{totalItems}</p>
+              <p className="font-semibold text-white dark:text-black">{totalItems}</p>
             </div>
             <div className="text-right">
               <p className="text-sm text-gray-600">Total Amount</p>
@@ -116,7 +116,7 @@ export function Cart() {
           </div>
           <Button
             onClick={handleCheckout}
-            className="w-full bg-[#003865] hover:bg-[#002850]"
+            className="w-full bg-[#003865] hover:bg-[#002850] bg-blue-900 text-orange-500 dark:text-orange-400"
             size="lg"
           >
             Proceed to Checkout

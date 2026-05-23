@@ -44,6 +44,7 @@ const HubEngagement = () => {
                             src="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=800"
                             alt="Volunteers in action"
                             className="w-full h-full object-cover"
+                            loading="lazy"
                         />
                     </motion.div>
                 </div>

@@ -31,6 +31,7 @@ const LogisticsTransparency = () => {
                                 src="https://images.pexels.com/photos/6591154/pexels-photo-6591154.jpeg?auto=compress&cs=tinysrgb&w=800"
                                 alt="Meal Preparation"
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </motion.div>
 
@@ -46,6 +47,7 @@ const LogisticsTransparency = () => {
                                 src="https://images.pexels.com/photos/6169659/pexels-photo-6169659.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="Logistics Courier"
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </motion.div>
 
@@ -61,6 +63,7 @@ const LogisticsTransparency = () => {
                                 src="https://images.pexels.com/photos/6646853/pexels-photo-6646853.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 alt="Children Receiving Aid"
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </motion.div>
                     </div>

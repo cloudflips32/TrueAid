@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router";
-import { loadStripe } from "@stripe/stripe-js";
 import { countries } from "../data/countries";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
@@ -14,11 +13,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../components/ui/select";
-import { MapPin, Package, CreditCard, Check } from "lucide-react";
+import { MapPin, Package, Check } from "lucide-react";
 import { motion } from "motion/react";
 
 export function Checkout() {
-  const { items, totalPrice, totalItems, clearCart } = useCart();
+  const { items, totalPrice, totalItems, selectedTargetCountry, selectedTargetCity } = useCart();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -27,8 +26,8 @@ export function Checkout() {
       navigate("/login?redirect=checkout");
     }
   }, [isAuthenticated, navigate]);
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(selectedTargetCountry || "");
+  const [selectedCity, setSelectedCity] = useState(selectedTargetCity || "");
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
 
@@ -49,7 +48,7 @@ export function Checkout() {
         },
         body: JSON.stringify({
           items,
-          success_url: `${window.location.origin}/?success=true`,
+          success_url: `${window.location.origin}/home?success=true`,
           cancel_url: `${window.location.origin}/checkout`,
         }),
       });
