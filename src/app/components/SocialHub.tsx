@@ -519,17 +519,17 @@ export default function SocialHub() {
                           {post.comments.map((comment) => (
                             <div
                               key={comment.id}
-                              className="bg-white dark:bg-slate-850 p-3 rounded-xl border border-gray-50 dark:border-slate-800 text-xs shadow-xs"
+                              className="bg-white dark:bg-slate-850 p-6 rounded-xl border border-gray-50 dark:border-slate-800 text-xs shadow-xs"
                             >
                               <div className="flex items-center justify-between mb-1">
-                                <span className="font-extrabold text-gray-900 dark:text-white">
+                                <span className="font-extrabold text-black dark:text-slate-500">
                                   {comment.userName}
                                 </span>
-                                <span className="text-[10px] text-gray-400 dark:text-slate-500">
+                                <span className="text-[10px] text-black dark:text-slate-500">
                                   {comment.timestamp}
                                 </span>
                               </div>
-                              <p className="text-gray-600 dark:text-slate-300 leading-relaxed font-medium">
+                              <p className="text-black pb-4 leading-relaxed font-medium">
                                 {comment.text}
                               </p>
                             </div>
@@ -547,7 +547,7 @@ export default function SocialHub() {
                           onKeyDown={(e) => {
                             if (e.key === "Enter") handleAddComment(post.id);
                           }}
-                          className="flex-1 px-4 py-2 text-xs border border-gray-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-850 text-gray-800 dark:text-slate-100 outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all font-medium"
+                          className="flex-1 px-4 py-2 text-xs border border-gray-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-850 text-black outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all font-medium"
                         />
                         <Button
                           onClick={() => handleAddComment(post.id)}
