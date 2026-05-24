@@ -28,7 +28,7 @@ const EventCalendar = () => {
                             <div className="flex items-center justify-between">
                                 <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    <span>MAY 24</span>
+                                    <span>MAY 28</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
@@ -69,7 +69,7 @@ const EventCalendar = () => {
                             <div className="flex items-center justify-between">
                                 <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    <span>JUN 02</span>
+                                    <span>JUN 06</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
@@ -110,7 +110,7 @@ const EventCalendar = () => {
                             <div className="flex items-center justify-between">
                                 <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    <span>JUN 15</span>
+                                    <span>JUN 21</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
