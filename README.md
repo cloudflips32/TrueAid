@@ -1,4 +1,12 @@
+
 # TrueAid — Direct Aid Delivery & Operations Hub
+
+[![Express](https://img.shields.io/badge/Express-v5.2.1-black.svg?logo=express)](https://expressjs.com)
+[![React](https://img.shields.io/badge/React-v18.3.1-teal.svg?logo=react)](https://react.dev)
+[![Stripe](https://img.shields.io/badge/Stripe-v22.1.1-blue.svg?logo=Stripe)](https://stripe.com)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-lightblue.svg?logo=tailwindcss)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-v5-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-v6.4.2-purple.svg?logo=vite)](https://vitejs.dev)
 
 TrueAid is an ultra-premium, high-performance, impact-driven platform designed to connect global generosity with local humanitarian needs. We bypass traditional administrative red tape to coordinate secure, on-the-ground food networks, warm blankets, and hot beverage distributions directly to evacuation centers and high-need regions globally.
 
@@ -47,7 +55,6 @@ To bridge the gap between global donors and direct field recipients, ensuring ab
 - **Dynamic Metadata Parsing**: Automatically reads product categories and operational descriptions directly from Stripe dashboard metadata on the fly.
 - **On-Ground Destination Selector**: Integrated an advanced geographic distribution catalog directly into the checkout pipeline, allowing donors to target their relief items to exact high-need global countries (such as Somalia, Yemen, South Sudan, Syria, and Haiti) and precise local evacuation centers or cities.
 - **User Authentication**: Secure user registration, sign-in, and account management powered directly by the **Stack Auth SDK**.
-
 ---
 
 ## 🛠️ Tech Stack

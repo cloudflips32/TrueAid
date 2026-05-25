@@ -2,8 +2,6 @@ import express from 'express';
 import stripePackage from 'stripe';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { syncProductsWithStripe } from './sync.js';
 
 dotenv.config();
@@ -72,7 +70,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
           quantity: item.quantity,
         };
       }
-      
+
       // Fallback: create dynamic/ad-hoc price details
       return {
         price_data: {
