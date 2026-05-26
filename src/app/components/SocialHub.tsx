@@ -397,7 +397,7 @@ export default function SocialHub() {
                 </div>
 
                 {/* Top-Right Corner Purchased Items Collage Overlay */}
-                <div className="absolute top-4 right-4 max-w-[200px] sm:max-w-[260px] flex flex-col gap-2 z-10">
+                <div className="absolute top-4 right-4 md:max-w-[200px] sm:max-w-[260px] hidden md:flex flex-col gap-2 z-10">
                   {post.items.map((item, idx) => (
                     <motion.div
                       initial={{ opacity: 0, x: 20 }}
@@ -420,8 +420,19 @@ export default function SocialHub() {
                           <Badge className="bg-orange-500 text-white font-extrabold text-[9px] px-1.5 py-0 rounded">
                             Qty {item.quantity}
                           </Badge>
-                          <span className="text-[9px] font-bold text-green-600 dark:text-green-400">
-                            • Bound for Delivery
+                          <span className="text-[9px] font-bold text-green-600 dark:text-green-400 flex items-center">
+                            <motion.span
+                              animate={{ opacity: [0.2, 1, 0.2] }}
+                              transition={{
+                                duration: 2,
+                                ease: "easeInOut",
+                                repeat: Infinity,
+                              }}
+                              className="mr-1"
+                            >
+                              •
+                            </motion.span>
+                            Bound for Delivery
                           </span>
                         </div>
                       </div>

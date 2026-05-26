@@ -1,8 +1,50 @@
+import { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import {
     ArrowRight, Award, Shield
 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, animate, useInView } from "motion/react";
+
+interface AnimatedCounterProps {
+    value: number;
+    suffix?: string;
+    duration?: number;
+    useSeparator?: boolean;
+}
+
+const AnimatedCounter = ({ value, suffix = "", duration = 1.5, useSeparator = false }: AnimatedCounterProps) => {
+    const nodeRef = useRef<HTMLSpanElement>(null);
+    const containerRef = useRef<HTMLSpanElement>(null);
+    const isInView = useInView(containerRef, { once: true, margin: "-50px 0px" });
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        const node = nodeRef.current;
+        if (!node) return;
+
+        const controls = animate(0, value, {
+            duration: duration,
+            ease: [0.16, 1, 0.3, 1], // premium out-expo ease curve
+            onUpdate(val) {
+                const rounded = Math.round(val);
+                node.textContent = useSeparator
+                    ? rounded.toLocaleString()
+                    : rounded.toString();
+            },
+        });
+
+        return () => controls.stop();
+    }, [value, isInView, duration, useSeparator]);
+
+    return (
+        <span ref={containerRef}>
+            <span ref={nodeRef}>0</span>
+            {suffix}
+        </span>
+    );
+};
+
 
 const LogisticsTransparency = () => {
 
@@ -25,7 +67,7 @@ const LogisticsTransparency = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="w-[70%] h-[75%] rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-slate-800 absolute left-0 z-10"
+                            className="w-[70%] h-[75%] rounded-2xl overflow-hidden shadow-xl border border-black dark:border-white/30 absolute left-0 z-10"
                         >
                             <img
                                 src="https://images.pexels.com/photos/6591154/pexels-photo-6591154.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -41,7 +83,7 @@ const LogisticsTransparency = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="w-[45%] h-[40%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-900 absolute right-4 top-8 z-20"
+                            className="w-[45%] h-[40%] rounded-2xl overflow-hidden shadow-2xl border-4 border-black dark:border-white/30 absolute right-4 top-8 z-20"
                         >
                             <img
                                 src="https://images.pexels.com/photos/6169659/pexels-photo-6169659.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -57,7 +99,7 @@ const LogisticsTransparency = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.35 }}
-                            className="w-[48%] h-[45%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-900 absolute right-12 bottom-4 z-30"
+                            className="w-[48%] h-[45%] rounded-2xl overflow-hidden shadow-2xl border-4 border-black dark:border-white/30 absolute right-12 bottom-4 z-30"
                         >
                             <img
                                 src="https://images.pexels.com/photos/6646853/pexels-photo-6646853.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -122,7 +164,9 @@ const LogisticsTransparency = () => {
                         transition={{ duration: 0.5 }}
                         className="text-center space-y-2 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800"
                     >
-                        <span className="block text-4xl sm:text-5xl font-black text-[#003865] dark:text-blue-400">150,000+</span>
+                        <span className="block text-4xl sm:text-5xl font-black text-[#003865] dark:text-blue-400">
+                            <AnimatedCounter value={150000} suffix="+" useSeparator={true} />
+                        </span>
                         <span className="block text-xs uppercase font-extrabold tracking-widest text-gray-400 dark:text-slate-400">Meals Dispatched</span>
                         <p className="text-xs text-gray-500 dark:text-slate-450 font-medium px-4">Calorie-dense meals packed and distributed globally.</p>
                     </motion.div>
@@ -134,7 +178,9 @@ const LogisticsTransparency = () => {
                         transition={{ duration: 0.5, delay: 0.15 }}
                         className="text-center space-y-2 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800"
                     >
-                        <span className="block text-4xl sm:text-5xl font-black text-orange-500 dark:text-orange-450">54 Hubs</span>
+                        <span className="block text-4xl sm:text-5xl font-black text-orange-500 dark:text-orange-450">
+                            <AnimatedCounter value={54} suffix=" Hubs" />
+                        </span>
                         <span className="block text-xs uppercase font-extrabold tracking-widest text-gray-400 dark:text-slate-400">Active Centers</span>
                         <p className="text-xs text-gray-500 dark:text-slate-450 font-medium px-4">Active operational structures in high-need districts.</p>
                     </motion.div>
@@ -146,7 +192,9 @@ const LogisticsTransparency = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="text-center space-y-2 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800"
                     >
-                        <span className="block text-4xl sm:text-5xl font-black text-green-650 dark:text-green-400">100%</span>
+                        <span className="block text-4xl sm:text-5xl font-black text-green-650 dark:text-green-400">
+                            <AnimatedCounter value={100} suffix="%" />
+                        </span>
                         <span className="block text-xs uppercase font-extrabold tracking-widest text-gray-400 dark:text-slate-400">Direct Delivery</span>
                         <p className="text-xs text-gray-500 dark:text-slate-455 font-medium px-4">Bypassing administrative layers directly to families.</p>
                     </motion.div>

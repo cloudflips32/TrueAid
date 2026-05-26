@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
     Carousel,
     CarouselContent,
@@ -11,7 +11,48 @@ import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { Plus, Shield } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, animate, useInView } from "motion/react";
+
+const AnimatedPrice = ({ price }: { price: number }) => {
+    const nodeRef = useRef<HTMLSpanElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(containerRef, { once: true, margin: "-50px 0px" });
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        const node = nodeRef.current;
+        if (!node) return;
+
+        const controls = animate(0, price, {
+            duration: 1.2,
+            ease: [0.16, 1, 0.3, 1], // premium out-expo ease curve
+            onUpdate(value) {
+                node.textContent = value.toFixed(2);
+            },
+        });
+
+        return () => controls.stop();
+    }, [price, isInView]);
+
+    return (
+        <div 
+            ref={containerRef} 
+            className="flex items-baseline gap-0.5 pt-1 cursor-default select-none"
+        >
+            <span className="text-lg font-bold text-orange-500 dark:text-orange-400 leading-none">
+                $
+            </span>
+            <span
+                ref={nodeRef}
+                className="text-2xl font-extrabold text-orange-500 dark:text-orange-400 leading-none"
+            >
+                0.00
+            </span>
+        </div>
+    );
+};
+
 
 
 const AidCarousel = () => {
@@ -223,9 +264,7 @@ const AidCarousel = () => {
                                                     <div className="flex items-center justify-between pt-3 border-t border-gray-50 dark:border-slate-800">
                                                         <div className="flex flex-col">
                                                             <span className="text-[10px] uppercase font-bold tracking-wider text-gray-400 dark:text-slate-500 leading-none">Impact Price</span>
-                                                            <span className="text-2xl font-extrabold text-orange-500 dark:text-orange-400 leading-none pt-1">
-                                                                ${item.price.toFixed(2)}
-                                                            </span>
+                                                            <AnimatedPrice price={item.price} />
                                                         </div>
                                                         <Button
                                                             onClick={() => addToCart(item)}
