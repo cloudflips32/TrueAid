@@ -1,8 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "../components/ui/button";
 import { Activity, Play, ArrowRight } from "lucide-react";
-
-const Video = "video" as any;
+import { VideoBackground } from "./ui/VideoBackground";
 
 const scrollCatalogToView = () => {
     document.getElementById("active-aid-catalog")?.scrollIntoView({ behavior: "smooth" });
@@ -12,11 +11,7 @@ const scrollCatalogToView = () => {
 const Hero = () => {
     return (
         <section className="relative w-full min-h-[85vh] md:min-h-0 md:h-[80vh] bg-black overflow-hidden flex flex-col justify-center py-6 md:py-0">
-            <Video
-                autoPlay
-                loop
-                muted
-                playsInline
+            <VideoBackground
                 src="/hero-background.mp4"
                 poster="https://images.pexels.com/photos/6591154/pexels-photo-6591154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 className="absolute top-0 left-0 w-full h-full object-cover brightness-[0.35] z-0"

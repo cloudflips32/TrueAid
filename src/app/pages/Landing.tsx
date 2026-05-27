@@ -4,8 +4,7 @@ import { motion } from "motion/react";
 import { Handshake } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect } from "react";
-
-const Video = "video" as any;
+import { VideoBackground } from "../components/ui/VideoBackground";
 
 export function Landing() {
   const navigate = useNavigate();
@@ -21,11 +20,7 @@ export function Landing() {
     <div className="relative min-h-screen bg-white dark:bg-slate-950 overflow-hidden flex flex-col transition-colors duration-300">
       {/* Video Container (roughly 80% height) */}
       <div className="relative h-[67vh] md:h-[75vh] w-full overflow-hidden bg-black">
-        <Video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <VideoBackground
           src="/hero-background.mp4"
           poster="https://images.pexels.com/photos/6591154/pexels-photo-6591154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           className="absolute top-0 left-0 w-full h-full object-cover brightness-[0.4]"
