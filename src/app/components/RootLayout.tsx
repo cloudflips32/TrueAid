@@ -136,7 +136,7 @@ export function RootLayout() {
               </AnimatePresence>
             </motion.button>
 
-            <Link to="/cart" className="relative p-2 rounded-full hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors active:scale-95">
+            <Link to="/cart" className="relative p-2 rounded-full hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors active:scale-95 hidden md:flex">
               <motion.div
                 animate={animateCart ? { scale: [1, 1.3, 1] } : { scale: 1 }}
                 transition={{ duration: 0.4 }}
