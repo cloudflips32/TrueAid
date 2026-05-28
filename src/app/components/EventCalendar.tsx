@@ -1,49 +1,5 @@
-import { useEffect, useRef } from "react";
-import { motion, animate, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { Calendar, Clock, MapPin, ArrowRight } from "lucide-react";
-
-const AnimatedSpan = ({ text }: { text: string }) => {
-    const nodeRef = useRef<HTMLSpanElement>(null);
-    const containerRef = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(containerRef, { once: true, margin: "-50px 0px" });
-
-    useEffect(() => {
-        if (!isInView) return;
-
-        const node = nodeRef.current;
-        if (!node) return;
-
-        const numberMatches = text.match(/\d+/g);
-        if (!numberMatches) {
-            node.textContent = text;
-            return;
-        }
-
-        const targets = numberMatches.map(n => parseInt(n, 10));
-
-        const controls = animate(0, 1, {
-            duration: 3.5,
-            ease: [0.16, 1, 0.3, 1], // premium out-expo ease curve
-            onUpdate(progress) {
-                let currentIndex = 0;
-                const result = text.replace(/\d+/g, (match) => {
-                    const target = targets[currentIndex++];
-                    const current = Math.round(progress * target);
-                    return current.toString().padStart(match.length, '0');
-                });
-                node.textContent = result;
-            }
-        });
-
-        return () => controls.stop();
-    }, [text, isInView]);
-
-    return (
-        <span ref={containerRef}>
-            <span ref={nodeRef}>{text.replace(/\d+/g, (m) => '0'.repeat(m.length))}</span>
-        </span>
-    );
-};
 
 
 const EventCalendar = () => {
@@ -73,11 +29,11 @@ const EventCalendar = () => {
                             <div className="flex items-center justify-between">
                                 <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    <AnimatedSpan text="MAY 28" />
+                                    MAY 28
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
-                                    <AnimatedSpan text="09:00 AM" />
+                                    09:00 AM
                                 </span>
                             </div>
 
@@ -114,11 +70,11 @@ const EventCalendar = () => {
                             <div className="flex items-center justify-between">
                                 <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    <AnimatedSpan text="JUN 06" />
+                                    JUN 06
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
-                                    <AnimatedSpan text="01:00 PM" />
+                                    01:00 PM
                                 </span>
                             </div>
 
@@ -155,11 +111,11 @@ const EventCalendar = () => {
                             <div className="flex items-center justify-between">
                                 <span className="flex items-center gap-1.5 text-xs font-bold text-orange-500 fill-orange-200/50 dark:text-orange-400 bg-orange-500/10 dark:bg-orange-950/30 px-2.5 py-1 rounded-md">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    <AnimatedSpan text="JUN 21" />
+                                    JUN 21
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 flex items-center gap-1">
                                     <Clock className="w-3 h-3" />
-                                    <AnimatedSpan text="10:30 AM" />
+                                    10:30 AM
                                 </span>
                             </div>
 
