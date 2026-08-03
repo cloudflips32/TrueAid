@@ -1,5 +1,5 @@
 import { createContext, useContext, ReactNode } from "react";
-import { useUser } from "@stackframe/react";
+import { useUser } from "@hexclave/react";
 
 interface User {
   id: string;
@@ -18,35 +18,35 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const stackUser = useUser();
+  const hexclaveUser = useUser();
 
-  const user: User | null = stackUser
+  const user: User | null = hexclaveUser
     ? {
-      id: stackUser.id,
-      name: stackUser.displayName || "",
-      email: stackUser.primaryEmail || "",
+      id: hexclaveUser.id,
+      name: hexclaveUser.displayName || "",
+      email: hexclaveUser.primaryEmail || "",
     }
     : null;
 
   const login = async (email: string, password: string) => {
-    // This is now handled by Stack's <SignIn /> component
-    console.log("Login should be handled by Stack component");
+    // This is now handled by hexclave's <SignIn /> component
+    console.log("Login should be handled by hexclave component");
   };
 
   const signup = async (name: string, email: string, password: string) => {
-    // This is now handled by Stack's <SignUp /> component
-    console.log("Signup should be handled by Stack component");
+    // This is now handled by hexclave's <SignUp /> component
+    console.log("Signup should be handled by hexclave component");
   };
 
   const logout = () => {
-    stackUser?.signOut();
+    hexclaveUser?.signOut();
   };
 
   return (
     <AuthContext.Provider
       value={{
         user,
-        isAuthenticated: !!stackUser,
+        isAuthenticated: !!hexclaveUser,
         login,
         signup,
         logout,

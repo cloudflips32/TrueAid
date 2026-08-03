@@ -1,4 +1,4 @@
-import { SignUp } from "@stackframe/react";
+import { SignUp } from "@hexclave/react";
 
 export function Signup() {
   return (

@@ -2,7 +2,7 @@ import { Outlet, Link, useLocation } from "react-router";
 import { ShoppingCart, Handshake, Home as HomeIcon, User, ChevronDown, ArrowRight, HeartHandshake, Sun, Moon } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import { motion, AnimatePresence } from "motion/react";
-import { UserButton } from "@stackframe/react";
+import { UserButton } from "@hexclave/react";
 import { useState, useRef, useEffect } from "react";
 
 export function RootLayout() {

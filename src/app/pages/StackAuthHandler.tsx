@@ -1,6 +1,6 @@
-import { StackHandler } from "@stackframe/react";
-import { stackClientApp } from "../../stack/client";
+import { HexclaveHandler } from "@hexclave/react";
+import { HexclaveClientApp } from "@hexclave/react";
 
 export default function StackAuthHandler() {
-  return <StackHandler app={stackClientApp} fullPage />;
+  return <HexclaveHandler app={HexclaveClientApp} fullPage />;
 }

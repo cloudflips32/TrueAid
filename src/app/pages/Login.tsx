@@ -1,4 +1,4 @@
-import { SignIn } from "@stackframe/react";
+import { SignIn } from "@hexclave/react";
 
 export function Login() {
   return (

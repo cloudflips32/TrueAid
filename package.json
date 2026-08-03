@@ -5,15 +5,16 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
+    "dev": "hexclave dev --config-file ./hexclave.config.ts -- npm run dev:inner",
     "server": "node api/index.js",
+    "dev:inner": "vite",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
+    "@hexclave/react": "^1.0.71",
     "@radix-ui/react-label": "2.1.2",
     "@radix-ui/react-select": "2.1.6",
     "@radix-ui/react-slot": "1.1.2",
-    "@stackframe/react": "^2.8.85",
     "@stripe/stripe-js": "^7.9.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
@@ -26,11 +27,12 @@
     "express": "^5.2.1",
     "lucide-react": "0.487.0",
     "motion": "12.23.24",
-    "react-router": "7.13.0",
+    "react-router": "^7.18.2",
     "stripe": "^22.1.1",
     "tailwind-merge": "3.2.0"
   },
   "devDependencies": {
+    "@hexclave/cli": "^1.0.71",
     "@tailwindcss/vite": "4.1.12",
     "@types/node": "^25.6.0",
     "@types/react": "^18.3.12",
