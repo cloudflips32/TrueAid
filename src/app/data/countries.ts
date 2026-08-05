@@ -1,51 +1,6 @@
-export interface Country {
-  id: string;
-  name: string;
-  cities: string[];
-}
-
-export const countries: Country[] = [
-  { id: "1", name: "Somalia", cities: ["Mogadishu", "Hargeisa", "Kismayo", "Baidoa"] },
-  { id: "2", name: "Yemen", cities: ["Sana'a", "Aden", "Taiz", "Al Hudaydah"] },
-  { id: "3", name: "South Sudan", cities: ["Juba", "Malakal", "Wau", "Bor"] },
-  { id: "4", name: "Syria", cities: ["Damascus", "Aleppo", "Homs", "Idlib"] },
-  { id: "5", name: "Afghanistan", cities: ["Kabul", "Kandahar", "Herat", "Mazar-i-Sharif"] },
-  { id: "6", name: "Haiti", cities: ["Port-au-Prince", "Cap-Haïtien", "Gonaïves", "Les Cayes"] },
-  { id: "7", name: "Ethiopia", cities: ["Addis Ababa", "Dire Dawa", "Mekelle", "Bahir Dar"] },
-  { id: "8", name: "Sudan", cities: ["Khartoum", "Omdurman", "Port Sudan", "Kassala"] },
-  { id: "9", name: "Myanmar", cities: ["Yangon", "Mandalay", "Naypyidaw", "Bago"] },
-  { id: "10", name: "Nigeria", cities: ["Lagos", "Kano", "Ibadan", "Abuja"] },
-  { id: "11", name: "Kenya", cities: ["Nairobi", "Mombasa", "Kisumu", "Nakuru"] },
-  { id: "12", name: "Bangladesh", cities: ["Dhaka", "Chittagong", "Khulna", "Sylhet"] },
-  { id: "13", name: "Pakistan", cities: ["Karachi", "Lahore", "Islamabad", "Peshawar"] },
-  { id: "14", name: "Venezuela", cities: ["Caracas", "Maracaibo", "Valencia", "Barquisimeto"] },
-  { id: "15", name: "Zimbabwe", cities: ["Harare", "Bulawayo", "Mutare", "Gweru"] },
-  { id: "16", name: "Mozambique", cities: ["Maputo", "Beira", "Nampula", "Quelimane"] },
-  { id: "17", name: "Chad", cities: ["N'Djamena", "Moundou", "Abeche", "Kélo"] },
-  { id: "18", name: "DRC", cities: ["Kinshasa", "Lubumbashi", "Mbuji-Mayi", "Kikwit"] },
-  { id: "19", name: "Seychelles", cities: ["Victoria", "Roche Caiman", "Cascade", "Takemali"] },
-  { id: "20", name: "Central African Republic", cities: ["Bangui", "Bimbo", "Mbaiki", "Kaga Bandoro"] },
-  { id: "21", name: "Comoros", cities: ["Moroni", "Mutsamudu", "Fomboni", "Domoni"] },
-  { id: "22", name: "Niger", cities: ["Niamey", "Zinder", "Maradi", "Agadez"] },
-  { id: "23", name: "Burkina Faso", cities: ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Ouahigouya"] },
-  { id: "24", name: "Mali", cities: ["Bamako", "Sikasso", "Koutiala", "Kayes"] },
-  { id: "25", name: "Mauritania", cities: ["Nouakchott", "Nouadhibou", "Rosso", "Kiffa"] },
-  { id: "26", name: "Senegal", cities: ["Dakar", "Thiès", "Pikine", "Ziguinchor"] },
-  { id: "27", name: "Cuba", cities: ["Havana", "Santiago de Cuba", "Camagüey", "Holguín", "Guantanamo"] },
-  { id: "28", name: "Honduras", cities: ["Tegucigalpa", "San Pedro Sula", "La Ceiba", "Choloma"] },
-  { id: "29", name: "Ecuador", cities: ["Guayaquil", "Quito", "Cuenca", "Portoviejo"] },
-  { id: "30", name: "Bolivia", cities: ["La Paz", "Sucre", "Cochabamba", "Santa Cruz"] },
-  { id: "31", name: "Eritrea", cities: ["Asmara", "Massawa", "Keren", "Tesfa"] },
-  { id: "32", name: "Ukraine", cities: ["Kyiv", "Kharkiv", "Odesa", "Dnipro"] },
-  { id: "33", name: "Turkmenistan", cities: ["Ashgabat", "Türkmenabat", "Dashoguz", "Mary"] },
-  { id: "34", name: "Kyrgyzstan", cities: ["Bishkek", "Osh", "Jalal-Abad", "Karakol"] },
-  { id: "35", name: "Tajikistan", cities: ["Dushanbe", "Khujand", "Kulob", "Bokhtar"] },
-  { id: "36", name: "Uzbekistan", cities: ["Tashkent", "Samarkand", "Bukhara", "Namangan"] },
-  { id: "37", name: "Kazakhstan", cities: ["Astana", "Almaty", "Shymkent", "Karaganda"] },
-  { id: "38", name: "China", cities: ["Beijing", "Shanghai", "Guangzhou", "Shenzhen"] },
-  { id: "39", name: "Mongolia", cities: ["Ulaanbaatar", "Erdenet", "Darkhan", "Choybalsan"] },
-  { id: "40", name: "Russia", cities: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg"] },
-  { id: "41", name: "Iran", cities: ["Tehran", "Mashhad", "Isfahan", "Karaj"] },
-  { id: "42", name: "Iraq", cities: ["Baghdad", "Basra", "Mosul", "Erbil"] },
-  { id: "47", name: "Israel", cities: ["Jerusalem", "Tel Aviv", "Haifa", "Rishon LeZion"] },
-];
+/**
+ * Re-exports shared data from @trueaid/shared.
+ * The web app uses the same country and aid item data as the mobile app.
+ */
+export { countries, aidItems } from '@trueaid/shared';
+export type { Country, AidItem } from '@trueaid/shared';

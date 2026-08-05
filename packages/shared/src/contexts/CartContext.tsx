@@ -1,0 +1,117 @@
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { AidItem, CartItem } from '../types';
+
+export interface CartContextType {
+  items: CartItem[];
+  addToCart: (item: AidItem) => void;
+  removeFromCart: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+  clearCart: () => void;
+  totalItems: number;
+  totalPrice: number;
+  animateCart: boolean;
+  selectedTargetCountry: string;
+  selectedTargetCity: string;
+  setTargetLocation: (countryId: string, cityName: string) => void;
+  addMultipleToCart: (itemsToAdd: { item: AidItem; quantity: number }[]) => void;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export function CartProvider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [animateCart, setAnimateCart] = useState(false);
+  const [selectedTargetCountry, setSelectedTargetCountry] = useState<string>('');
+  const [selectedTargetCity, setSelectedTargetCity] = useState<string>('');
+
+  const setTargetLocation = (countryId: string, cityName: string) => {
+    setSelectedTargetCountry(countryId);
+    setSelectedTargetCity(cityName);
+  };
+
+  const addToCart = (item: AidItem) => {
+    setItems((prev) => {
+      const existing = prev.find((i) => i.id === item.id);
+      if (existing) {
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+        );
+      }
+      return [...prev, { ...item, quantity: 1 }];
+    });
+
+    setAnimateCart(true);
+    setTimeout(() => setAnimateCart(false), 400);
+  };
+
+  const addMultipleToCart = (itemsToAdd: { item: AidItem; quantity: number }[]) => {
+    setItems((prev) => {
+      let nextItems = [...prev];
+      itemsToAdd.forEach(({ item, quantity }) => {
+        const existingIndex = nextItems.findIndex((i) => i.id === item.id);
+        if (existingIndex > -1) {
+          nextItems[existingIndex] = {
+            ...nextItems[existingIndex],
+            quantity: nextItems[existingIndex].quantity + quantity,
+          };
+        } else {
+          nextItems.push({ ...item, quantity });
+        }
+      });
+      return nextItems;
+    });
+
+    setAnimateCart(true);
+    setTimeout(() => setAnimateCart(false), 400);
+  };
+
+  const removeFromCart = (id: string) => {
+    setItems((prev) => prev.filter((i) => i.id !== id));
+  };
+
+  const updateQuantity = (id: string, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    setItems((prev) =>
+      prev.map((i) => (i.id === id ? { ...i, quantity } : i))
+    );
+  };
+
+  const clearCart = () => {
+    setItems([]);
+  };
+
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  return (
+    <CartContext.Provider
+      value={{
+        items,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        totalItems,
+        totalPrice,
+        animateCart,
+        selectedTargetCountry,
+        selectedTargetCity,
+        setTargetLocation,
+        addMultipleToCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+}
+
+export function useCart() {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error('useCart must be used within CartProvider');
+  }
+  return context;
+}
